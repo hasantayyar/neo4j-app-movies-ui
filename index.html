@@ -8,13 +8,22 @@
     <meta name="author" content="">
     <link rel="shortcut icon" href="../../docs-assets/ico/favicon.png">
 
-    <title>Static Top Navbar Example for Bootstrap</title>
+    <title>Neo4j Movies - Demo Graph Apps</title>
+
+    <link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,600,700">
 
     <!-- Bootstrap core CSS -->
     <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="navbar-static-top.css" rel="stylesheet">
+
+    <!-- Owl Carousel Assets -->
+    <link href="owl-carousel/owl.carousel.css" rel="stylesheet">
+    <link href="owl-carousel/owl.theme.css" rel="stylesheet">
+
+    <!-- Prettify -->
+    <link href="assets/js/google-code-prettify/prettify.css" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy this line! -->
     <!--[if lt IE 9]><script src="../../docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -38,14 +47,19 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Project name</a>
+          <div class="logo-well">
+            <img id="logo" alt="Neo4j World's Leading Graph Database" src="assets/img/logo-white.svg">
+          </div>
+          <a class="navbar-brand" href="#">
+            <div class="brand">Neo4j Movies</div>
+          </a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li class="active"><a href="#">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#contact">Contact</a></li>
-            <li class="dropdown">
+            <!-- <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
               <ul class="dropdown-menu">
                 <li><a href="#">Action</a></li>
@@ -56,13 +70,13 @@
                 <li><a href="#">Separated link</a></li>
                 <li><a href="#">One more separated link</a></li>
               </ul>
-            </li>
+            </li> -->
           </ul>
-          <ul class="nav navbar-nav navbar-right">
+          <!-- <ul class="nav navbar-nav navbar-right">
             <li><a href="../navbar/">Default</a></li>
             <li class="active"><a href="./">Static top</a></li>
             <li><a href="../navbar-fixed-top/">Fixed top</a></li>
-          </ul>
+          </ul> -->
         </div><!--/.nav-collapse -->
       </div>
     </div>
@@ -70,16 +84,75 @@
 
     <div class="container">
 
-      <!-- Main component for a primary marketing message or call to action -->
-      <div class="jumbotron">
-        <h1>Navbar example</h1>
-        <p>This example is a quick exercise to illustrate how the default, static and fixed to top navbar work. It includes the responsive CSS and HTML, so it also adapts to your viewport and device.</p>
-        <p>To see the difference between static and fixed top navbars, just scroll.</p>
-        <p>
-          <a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">View navbar docs &raquo;</a>
-        </p>
-      </div>
+      <!-- Primary movie carousel grid -->
+      <div class="row">
+            <div class="span12">
 
+              <div id="owl-example" class="owl-carousel">
+
+                <div class="item darkCyan">
+                  <img src="assets/img/demo-slides/touch.png" alt="Touch">
+                    <h3>Touch</h3>
+                    <h4>Can touch this</h4>
+                </div>
+                <div class="item forestGreen">
+                  <img src="assets/img/demo-slides/grab.png" alt="Grab">
+                    <h3>Grab</h3>
+                    <h4>Can grab this</h4>
+                </div>
+                <div class="item orange">
+                  <img src="assets/img/demo-slides/responsive.png" alt="Responsive">
+                    <h3>Responsive</h3>
+                    <h4>Fully responsive!</h4>
+                </div>
+
+               <!--  <div class="item yellow">
+                  <img src="assets/img/demo-slides/css3.png" alt="CSS3">
+                    <h3>CSS3</h3>
+                    <h4>3D Acceleration.</h4>
+                </div>
+
+                <div class="item dodgerBlue">
+                  <img src="assets/img/demo-slides/multi.png" alt="Multi">
+                    <h3>Multiply</h3>
+                    <h4>Owls on page.</h4>
+                </div>
+
+                <div class="item skyBlue">
+                  <img src="assets/img/demo-slides/modern.png" alt="Modern Browsers">
+                    <h3>Modern</h3>
+                    <h4>Browsers Compatibility</h4>
+                </div>
+ -->
+                <!-- <div class="item zombieGreen">
+                  <img src="assets/img/demo-slides/zombie.png" alt="Zombie Browsers - old ones">
+                    <h3>Zombie</h3>
+                    <h4>Browsers Compatibility</h4>
+                </div>
+
+                <div class="item violet">
+                  <img src="assets/img/demo-slides/controls.png" alt="Take Control">
+                    <h3>Take Control</h3>
+                    <h4>The way you like</h4>
+                </div>
+
+                <div class="item yellowLight">
+                  <img src="assets/img/demo-slides/feather.png" alt="Light">
+                    <h3>Light</h3>
+                    <h4>As a feather</h4>
+                </div>
+
+                <div class="item steelGray">
+                  <img src="assets/img/demo-slides/tons.png" alt="Tons of Opotions">
+                    <h3>Tons</h3>
+                    <h4>of options</h4>
+                </div> -->
+
+              </div>
+
+
+            </div>
+          </div>
     </div> <!-- /container -->
 
 
@@ -88,5 +161,8 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="owl-carousel/owl.carousel.min.js"></script>
+    <script src="assets/js/google-code-prettify/prettify.js"></script>
+    <script src="assets/js/application.js"></script>
   </body>
 </html>
