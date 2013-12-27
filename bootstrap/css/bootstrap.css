@@ -6440,6 +6440,15 @@ body
   background: none repeat scroll 0 0 #FF8A3C;
 }
 
+#owl-demo-cast .item
+{
+  background: none repeat scroll 0 0 #DDDDDD;
+  text-align: center;
+  background: none;
+  padding: 0;
+  margin: 0 5px;
+}
+
 .content-item-right
 {
   padding-left: 2em;
@@ -6449,4 +6458,32 @@ body
 .item-nav
 {
   margin-bottom: 1em;
+}
+
+.list-group-details .list-group-item
+{
+  font-weight: 600;
+  padding: 0;
+}
+
+.list-group-details .list-group-item div span
+{
+  font-weight: 400;
+}
+
+.item-left-panel .row
+{
+  margin: 5px 0;
+  padding: 5px 0;
+}
+
+.item-left-panel .row div
+{
+
+}
+
+.item-label
+{
+  font-weight:600;
+  padding-left:15px;
 }
