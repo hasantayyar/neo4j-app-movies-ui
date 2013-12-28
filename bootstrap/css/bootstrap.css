@@ -4083,9 +4083,9 @@ textarea.input-group-sm > .input-group-btn > .btn {
   color: #ffffff;
 }
 .breadcrumb {
-  background-color: #F5F5F5;
+  /*background-color: #F5F5F5;
   border: 1px solid #E7E7E7;
-  border-radius: 4px;
+  border-radius: 4px;*/
   list-style: none outside none;
   margin-bottom: 20px;
   padding: 10px 15px;
@@ -6416,7 +6416,7 @@ body
 /* Category carousel */
 #owl-demo-1 .item, #owl-demo-2 .item, #owl-demo-3 .item
 {
-  padding: 30px 0px;
+/*  padding: 30px 0px;*/
   margin: 5px;
   color: #FFF;
   -webkit-border-radius: 3px;
@@ -6425,19 +6425,24 @@ body
   text-align: center;
 }
 
+#owl-demo-1 .item .thumbnail, #owl-demo-2 .item .thumbnail, #owl-demo-3 .item .thumbnail, #owl-demo-cast .item .thumbnail
+{
+  margin-bottom: 0;
+}
+
 #owl-demo-1 .item
 {
-  background: #42bdc2;
+  /*background: #42bdc2;*/
 }
 
 #owl-demo-2 .item
 {
-  background: none repeat scroll 0 0 #7FC242;
+/*  background: none repeat scroll 0 0 #7FC242;*/
 }
 
 #owl-demo-3 .item
 {
-  background: none repeat scroll 0 0 #FF8A3C;
+/*  background: none repeat scroll 0 0 #FF8A3C;*/
 }
 
 #owl-demo-cast .item

@@ -11,16 +11,11 @@ $(document).ready(function($) {
 	var owl = $("#owl-demo-1, #owl-demo-2, #owl-demo-3");
  
 	owl.owlCarousel({
-		itemsCustom : [
-		[0, 2],
-		[450, 4],
-		[600, 7],
-		[700, 9],
-		[1000, 10],
-		[1200, 12],
-		[1400, 13],
-		[1600, 15]
-		]
+		items : 8,
+		itemsDesktop : [1199,6],
+		itemsDesktopSmall : [980,4],
+		itemsTablet: [768,3],
+		itemsMobile: [479, 2]
 	});
 
 	var owlCast = $("#owl-demo-cast");
