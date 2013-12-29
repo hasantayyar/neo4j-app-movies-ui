@@ -12,8 +12,10 @@ contentApp.directive('carousel', function() {
            	if(scope.movies.length > 0)
            	{
            		movies = scope.movies;
+           		var genre = element.attr('data-genre');
            		var html = '';
 	            for (var i = 0; i < movies.length; i++) {
+	            	if ($.inArray(genre, movies[i].genres) != -1) {
 	            	var movieTitleLink = movies[i].title.replace('/', ' ')
 	                 html += '<div class="item">' +
 						          '<div class="thumbnail">' +
@@ -21,6 +23,7 @@ contentApp.directive('carousel', function() {
 						          '</div>' +
 						          '<span><a href="index.html#/movies/' + movies[i].title + '">' + movies[i].title + '</a></span>' +
 						        '</div>';
+						    };
 	            }
             
             	element[0].innerHTML = html;
