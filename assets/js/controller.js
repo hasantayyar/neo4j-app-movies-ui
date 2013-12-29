@@ -49,28 +49,38 @@ contentApp.directive('carousel', function() {
   return res;
 });
 
-contentApp.controller('MovieListCtrl', function($scope, $http) {
-  	$scope.url = 'http://neo4jmovies.azurewebsites.net:80/api/v0/movies?api_key=special-key&neo4j=false';
-  	$scope.movies = [];
+contentApp.controller('MovieListCtrl', ['$scope', '$http', '$templateCache', 
+	function($scope, $http, $templateCache) {
+	  	$scope.url = 'http://neo4jmovies.azurewebsites.net:80/api/v0/movies?api_key=special-key&neo4j=false';
+	  	$scope.movies = [];
 
-  	var fetchMovies = function()
-  	{
-  		$http.get($scope.url).then(function(result) {
-			$scope.movies = result.data;
-		});
-  	}
+	  	var fetchMovies = function()
+	  	{
+	  		$http({method: 'GET', url: $scope.url, cache: $templateCache}).
+			    success(function(data, status, headers, config) {
+			    	$scope.movies = data;
+			    }).
+			    error(function(data, status, headers, config) {
+			    // called asynchronously if an error occurs
+			    // or server returns response with an error status.
+			    });
+	  	}
 
-  fetchMovies();
-});
+	  	fetchMovies();
+	}]);
 
 
 
-
-contentApp.controller('MovieItemCtrl', ['$scope', '$routeParams', '$http',
-  function($scope, $routeParams, $http) {
+contentApp.controller('MovieItemCtrl', ['$scope', '$routeParams', '$http', '$templateCache',
+  function($scope, $routeParams, $http, $templateCache) {
     $scope.movieId = $routeParams.movieId;
-    $http.get('http://neo4jmovies.azurewebsites.net:80/api/v0/movies/title/' + $scope.movieId + '?api_key=special-key&neo4j=false').success(function(data) {
-    	$scope.movie = data;
-  	});
+    $http({method: 'GET', url: 'http://neo4jmovies.azurewebsites.net:80/api/v0/movies/title/' + $scope.movieId + '?api_key=special-key&neo4j=false', cache: $templateCache}).
+	    success(function(data, status, headers, config) {
+	    	$scope.movie = data;
+	    }).
+	    error(function(data, status, headers, config) {
+	    // called asynchronously if an error occurs
+	    // or server returns response with an error status.
+	    });
   }]);
 			
