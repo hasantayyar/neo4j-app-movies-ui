@@ -4087,7 +4087,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
   border: 1px solid #E7E7E7;
   border-radius: 4px;*/
   list-style: none outside none;
-  margin-bottom: 20px;
+  /*margin-bottom: 20px;*/
   padding: 10px 15px;
 }
 .breadcrumb > li {
