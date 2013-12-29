@@ -82,5 +82,14 @@ contentApp.controller('MovieItemCtrl', ['$scope', '$routeParams', '$http', '$tem
 	    // called asynchronously if an error occurs
 	    // or server returns response with an error status.
 	    });
+
+    $http({method: 'GET', url: 'http://neo4jmovies.azurewebsites.net:80/api/v0/people/director/movie/' + $scope.movieId + '?api_key=special-key&neo4j=false', cache: $templateCache}).
+	    success(function(data, status, headers, config) {
+	    	$scope.movie.director = data;
+	    }).
+	    error(function(data, status, headers, config) {
+	    // called asynchronously if an error occurs
+	    // or server returns response with an error status.
+	    });
   }]);
 			
