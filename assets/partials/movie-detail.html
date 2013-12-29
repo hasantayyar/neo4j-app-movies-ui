@@ -39,7 +39,7 @@
                   <div class="panel-heading">Duration: <span class="panel-heading">{{movie.duration + ' min'}}</span></div>
                 </li>
                 <li class="list-group-item">
-                  <div class="panel-heading">Genres: <span class="panel-heading"><a href="#">Drama</a>, <a href="#">Adventure</a></span></div>
+                  <div class="panel-heading">Genres: <span class="panel-heading genre-list"><span ng-repeat="genre in movie.genres">{{genre}}{{{true: '', false: ', '}[$last]}}</span></span></div>
                 </li>
                 <li class="list-group-item">
                   <div class="panel-heading">Directed By: <span class="panel-heading"><a href="#">{{movie.director.name}}</a></span></div>
