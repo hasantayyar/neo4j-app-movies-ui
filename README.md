@@ -10,3 +10,4 @@ Tools:
 * Swagger: http://neo4j-swagger.tinj.com/
 * Node.js: http://nodejs.org/
 * Bootstrap: http://getbootstrap.com/
+* Angular.js: http://angularjs.com/
