@@ -82,7 +82,7 @@
                 </div>
                <div class="row">
                   <div class="item-label col-md-3">Keywords:</div>
-                  <div class="col-md-9"><a href="#">island</a>, <a href="#">remote island</a>, <a href="#">survival</a>, <a href="#">storm</a>, <a href="#">clock</a></div>
+                  <div class="col-md-9"><span ng-repeat="genre in movie.genres">{{genre}}{{{true: '', false: ', '}[$last]}}</span></div>
                 </div>
             </div>
           </div>
