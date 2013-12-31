@@ -6522,3 +6522,7 @@ body
 {
   display: none;
 }
+
+.owl-slider .item a {
+  font-weight: 600;
+}
