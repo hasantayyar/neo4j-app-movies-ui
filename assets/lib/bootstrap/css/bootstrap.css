@@ -4386,7 +4386,6 @@ a.list-group-item.active > .badge,
 }
 .thumbnail {
   display: block;
-  padding: 4px;
   margin-bottom: 20px;
   line-height: 1.428571429;
   background-color: #ffffff;
@@ -4394,6 +4393,7 @@ a.list-group-item.active > .badge,
   border-radius: 4px;
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
+  background-color: #EFEFEF;
 }
 .thumbnail > img,
 .thumbnail a > img {
@@ -6496,4 +6496,29 @@ body
 .actors .thumbnail
 {
   border: none;
+}
+
+#mydiv {  
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index:1000;
+    background-color:grey;
+    opacity: .5;
+ }
+
+.ajax-loader {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -32px; /* -1 * image width / 2 */
+    margin-top: -32px;  /* -1 * image height / 2 */
+    display: block;     
+}
+
+.hidden-content
+{
+  display: none;
 }
