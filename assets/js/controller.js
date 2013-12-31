@@ -52,9 +52,9 @@ contentApp.directive('carousel', function() {
 	            	var movieTitleLink = movies[i].title.replace('/', ' ')
 	                 html += '<div class="item">' +
 						          '<div class="thumbnail">' +
-						            '<a href="index.html#/movies/' + movies[i].title + '"><img alt="100%x180" src="assets/img/posters/' + movieTitleLink + '.jpg"></a>' +
+						            '<a href="index.html#/movies/' + movies[i].title.replace('/', '%252F') + '"><img alt="100%x180" src="assets/img/posters/' + movieTitleLink + '.jpg"></a>' +
 						          '</div>' +
-						          '<span><a href="index.html#/movies/' + movies[i].title + '">' + movies[i].title + '</a></span>' +
+						          '<span><a href="index.html#/movies/' + movies[i].title.replace('/', '%252F') + '">' + movies[i].title + '</a></span>' +
 						        '</div>';
 						    };
 	            }
@@ -87,7 +87,7 @@ contentApp.directive('carousel', function() {
 
 contentApp.controller('MovieListCtrl', ['$scope', '$http', '$templateCache', 
 	function($scope, $http, $templateCache) {
-	  	$scope.url = 'http://neo4jmovies.azurewebsites.net:80/api/v0/movies?api_key=special-key&neo4j=false';
+	  	$scope.url = 'http://movieapi-neo4j.herokuapp.com/api/v0/movies?api_key=special-key&neo4j=false';
 	  	$scope.movies = [];
 
 	  	var fetchMovies = function()
@@ -149,12 +149,14 @@ contentApp.directive('carouselactors', function() {
 
 contentApp.controller('MovieItemCtrl', ['$scope', '$routeParams', '$http', '$templateCache',
   function($scope, $routeParams, $http, $templateCache) {
-  		$scope.url = 'http://neo4jmovies.azurewebsites.net:80/api/v0/movies/title/' + $routeParams.movieId + '?api_key=special-key&neo4j=false';
+  		console.log('http://movieapi-neo4j.herokuapp.com/api/v0/movies/title/' + encodeURIComponent(decodeURI(decodeURI($routeParams.movieId))) + '?api_key=special-key&neo4j=false');
+  		$scope.url = 'http://movieapi-neo4j.herokuapp.com/api/v0/movies/title/' + encodeURIComponent(decodeURI(decodeURI($routeParams.movieId))) + '?api_key=special-key&neo4j=false';
 	  	var fetchMovie = function()
 	  	{
 	  		$http({method: 'GET', url: $scope.url, cache: $templateCache}).
 			    success(function(data, status, headers, config) {
 			    	$scope.movie = data;
+			    	$scope.movie.poster = $scope.movie.title.replace("/", " ");
 			    }).
 			    error(function(data, status, headers, config) {
 			    // called asynchronously if an error occurs
