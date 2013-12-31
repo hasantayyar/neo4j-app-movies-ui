@@ -6492,3 +6492,8 @@ body
   font-weight:600;
   padding-left:15px;
 }
+
+.actors .thumbnail
+{
+  border: none;
+}

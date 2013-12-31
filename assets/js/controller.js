@@ -73,26 +73,62 @@ contentApp.controller('MovieListCtrl', ['$scope', '$http', '$templateCache',
 	}]);
 
 
+contentApp.directive('carouselactors', function() {
+	var res = {
+     restrict : 'A',
+     link     : function (scope, element, attrs) {
+           scope.$watch(attrs.carouselactors, function(movie) {  
+           	if(scope.movie != undefined ? scope.movie.actors != undefined ? scope.movie.actors.length > 0 : false : false)
+           	{
+           		movie = scope.movie;
+           		var html = '';
+	            for (var i = 0; i < movie.actors.length; i++) {
+	            	var actorTitleLink = movie.actors[i].replace('/', ' ')
+	                 html += '<div class="item">' +
+						          '<div class="thumbnail">' +
+						            '<a href="index.html#/actors/' + movie.actors[i] + '"><img src="/assets/js/holder.js/100x148"/></a>' +
+						          '</div>' +
+						          '<span><a href="index.html#/actors/' + movie.actors[i] + '">' + movie.actors[i] + '</a></span>' +
+						        '</div>';
+
+	            }
+            //src="assets/img/actors/' + actorTitleLink + '.jpg"
+            	element[0].innerHTML = html;
+
+            	setTimeout(function() {
+	            $(element).owlCarousel({
+					items : 6,
+					itemsDesktop : [1199,6],
+					itemsDesktopSmall : [980,4],
+					itemsTablet: [768,3],
+					itemsMobile: [479, 2]
+				});
+				Holder.run();
+	           }, 0);
+			}
+        	
+        });
+       }
+   };
+  return res;
+});
+
 
 contentApp.controller('MovieItemCtrl', ['$scope', '$routeParams', '$http', '$templateCache',
   function($scope, $routeParams, $http, $templateCache) {
-    $scope.movieId = $routeParams.movieId;
-    $http({method: 'GET', url: 'http://neo4jmovies.azurewebsites.net:80/api/v0/movies/title/' + $scope.movieId + '?api_key=special-key&neo4j=false', cache: $templateCache}).
-	    success(function(data, status, headers, config) {
-	    	$scope.movie = data;
-	    }).
-	    error(function(data, status, headers, config) {
-	    // called asynchronously if an error occurs
-	    // or server returns response with an error status.
-	    });
+  		$scope.url = 'http://neo4jmovies.azurewebsites.net:80/api/v0/movies/title/' + $routeParams.movieId + '?api_key=special-key&neo4j=false';
+	  	var fetchMovie = function()
+	  	{
+	  		$http({method: 'GET', url: $scope.url, cache: $templateCache}).
+			    success(function(data, status, headers, config) {
+			    	$scope.movie = data;
+			    }).
+			    error(function(data, status, headers, config) {
+			    // called asynchronously if an error occurs
+			    // or server returns response with an error status.
+			    });
+	  	}
 
-    $http({method: 'GET', url: 'http://neo4jmovies.azurewebsites.net:80/api/v0/people/director/movie/' + $scope.movieId + '?api_key=special-key&neo4j=false', cache: $templateCache}).
-	    success(function(data, status, headers, config) {
-	    	$scope.movie.director = data;
-	    }).
-	    error(function(data, status, headers, config) {
-	    // called asynchronously if an error occurs
-	    // or server returns response with an error status.
-	    });
+	  	fetchMovie();
   }]);
 			
