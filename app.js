@@ -5,8 +5,8 @@ app.use(express.logger());
 // var http_handler = express.static(__dirname + '/');
 
 app.configure(function(){
-  app.use('/assets', express.static(__dirname + '/assets'));
-  app.use(express.static(__dirname + '/'));
+  app.use('/dist/assets', express.static(__dirname + '/dist/assets'));
+  app.use(express.static(__dirname + '/dist'));
 });
 
 // app.get('/', function(req, res, next) {
