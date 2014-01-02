@@ -23,8 +23,7 @@
     "npm": "1.2.x"
   },
   "dependencies": {
-    "connect": ">= 1.8.x",
-    "express": "3.x"
+    "connect": ">= 1.8.x"
   },
   "license": "MIT",
   "readmeFilename": "README.md",
