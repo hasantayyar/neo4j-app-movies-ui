@@ -6570,3 +6570,13 @@ h3.ng-binding
     font-size: 13px;
     font-weight: 600;
 }
+
+.panel-body p
+{
+  margin: 0;
+}
+
+.content-title
+{
+  margin-bottom: 1em;
+}
